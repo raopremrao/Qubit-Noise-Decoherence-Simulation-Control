@@ -6,6 +6,7 @@ from noise_models.phase_damping import phase_damping
 from visualization.bloch_sphere import plot_bloch
 from visualization.fidelity_plot import plot_fidelity
 from simulation.decoherence import simulate_T1, simulate_T2
+from simulation.noise_analysis import fidelity_vs_noise, compare_noise_models
 
 
 # Time
@@ -35,3 +36,9 @@ plot_fidelity(states, ket2dm(target))
 
 simulate_T1()
 simulate_T2()
+
+fidelity_vs_noise("amplitude")
+fidelity_vs_noise("phase")
+fidelity_vs_noise("depolarizing")
+
+compare_noise_models()
