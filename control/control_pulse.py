@@ -1,8 +1,10 @@
 import numpy as np
 
-# def control_hamiltonian(t, args):
-#     omega = args['omega']
-#     return omega * np.cos(t)
+def control_hamiltonian(t, args):
+    omega = args['omega']
+    return omega * np.cos(t)
+
+# For Controlled Pulse:
 
 def constant_pulse(t, A=1):
     return A
