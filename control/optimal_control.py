@@ -21,7 +21,9 @@ def optimize_pulse(noise_ops, target_states):
             H_list.append(H)
         
         result = mesolve(H_list, psi0, tlist, noise_ops, [])
+        # print(f"Results: {result}")
         final_state = result.states[-1]
+        # print(f"final state: {final_state}")
 
         fid = fidelity(final_state, target_states)
         return 1 - fid # minimize
@@ -29,5 +31,7 @@ def optimize_pulse(noise_ops, target_states):
     initial_pulse = np.random.rand(N)
 
     result = minimize(fidelity_cost, initial_pulse, method='Powell')
+
+    # print(f"Optimization Results: {result}")
 
     return result.x
