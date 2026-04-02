@@ -3,7 +3,7 @@ from qutip import *
 from scipy.optimize import minimize
 
 def optimize_pulse(noise_ops, target_state):
-    N = 100
+    N = 80
     T = 5
     tlist = np.linspace(0, T, N)
 

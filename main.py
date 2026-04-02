@@ -11,9 +11,6 @@ from control.control_analysis import compare_control_pulse
 from control.optimal_control import optimize_pulse
 from control.plot_optimal_pulse import plot_optimal_pulse
 from control.fidelity_comparison import compare_fidelity_with_without_control
-from control.run_grape_simulation import run_grape
-from control.grape_plots import plot_grape_results
-from control.grape_fidelity import fidelity_with_grape
 
 
 # Time
@@ -62,10 +59,3 @@ plot_optimal_pulse(pulse)
 
 
 compare_fidelity_with_without_control(pulse, noise)
-
-
-pulse, fidelity_history = run_grape(noise)
-
-plot_grape_results(pulse, fidelity_history)
-
-fidelity_with_grape(pulse, noise)
