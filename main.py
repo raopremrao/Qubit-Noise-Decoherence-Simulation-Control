@@ -8,7 +8,8 @@ from visualization.fidelity_plot import plot_fidelity
 from simulation.decoherence import simulate_T1, simulate_T2
 from simulation.noise_analysis import fidelity_vs_noise, compare_noise_models
 from control.control_analysis import compare_control_pulse
-
+from control.optimal_control import optimize_pulse
+from control.plot_optimal_pulse import plot_optimal_pulse
 
 # Time
 tlist = np.linspace(0, 5, 200)
@@ -45,3 +46,11 @@ fidelity_vs_noise("depolarizing")
 compare_noise_models()
 
 compare_control_pulse()
+
+
+noise = [amplitude_damping(0.2)]
+target = ket2dm(basis(2, 1))
+
+pulse = optimize_pulse(noise, target)
+# print(pulse)
+plot_optimal_pulse(pulse)
