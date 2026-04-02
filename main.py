@@ -5,6 +5,7 @@ from noise_models.amplitude_damping import amplitude_damping
 from noise_models.phase_damping import phase_damping
 from visualization.bloch_sphere import plot_bloch
 from visualization.fidelity_plot import plot_fidelity
+from simulation.decoherence import simulate_T1, simulate_T2
 
 
 # Time
@@ -28,6 +29,9 @@ states = lindblad_evolution(H, psi0, c_ops, tlist)
 # Target state
 target = basis(2, 1)
 
-# Plots
+# Plot
 plot_bloch(states)
 plot_fidelity(states, ket2dm(target))
+
+simulate_T1()
+simulate_T2()
