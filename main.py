@@ -11,6 +11,8 @@ from control.control_analysis import compare_control_pulse
 from control.optimal_control import optimize_pulse
 from control.plot_optimal_pulse import plot_optimal_pulse
 
+
+
 # Time
 tlist = np.linspace(0, 5, 200)
 
