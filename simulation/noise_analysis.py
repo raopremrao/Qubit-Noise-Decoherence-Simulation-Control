@@ -33,6 +33,7 @@ def fidelity_vs_noise(noise_type="amplitude"):
     plt.ylabel("Fidelity")
     plt.title(f"Fidelity vs {noise_type} noise")
     plt.grid(True)
+    plt.savefig(f"results/plots/{noise_type}_noise.png")
     plt.show()
 
 
@@ -68,4 +69,5 @@ def compare_noise_models():
     plt.title("Fidelity vs Noise Type")
     plt.legend()
     plt.grid(True)
+    plt.savefig("results/plots/compare_noise_models.png")
     plt.show()
