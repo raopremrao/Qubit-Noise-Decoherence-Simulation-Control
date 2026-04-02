@@ -11,4 +11,4 @@ def plot_fidelity(states, target):
     plt.title("Fidelity vs Time")
     plt.grid(True)
     plt.savefig("results/plots/fidelity_vs_time.png")
-    plt.show()
+    # plt.show()

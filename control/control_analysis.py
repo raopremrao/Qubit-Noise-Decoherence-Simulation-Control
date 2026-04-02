@@ -28,4 +28,4 @@ def compare_control_pulse():
     plt.legend()
     plt.grid(True)
     plt.savefig("results/plots/fidelity_with_control_pulses.png")
-    plt.show()
+    # plt.show()

@@ -8,4 +8,4 @@ def plot_optimal_pulse(pulse):
     plt.title("Optimized Control Pulse")
     plt.grid(True)
     plt.savefig("results/plots/optimal_pulse.png")
-    plt.show()
+    # plt.show()

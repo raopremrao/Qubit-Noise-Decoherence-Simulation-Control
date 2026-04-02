@@ -10,7 +10,10 @@ from simulation.noise_analysis import fidelity_vs_noise, compare_noise_models
 from control.control_analysis import compare_control_pulse
 from control.optimal_control import optimize_pulse
 from control.plot_optimal_pulse import plot_optimal_pulse
-
+from control.fidelity_comparison import compare_fidelity_with_without_control
+from control.run_grape_simulation import run_grape
+from control.grape_plots import plot_grape_results
+from control.grape_fidelity import fidelity_with_grape
 
 
 # Time
@@ -35,7 +38,7 @@ states = lindblad_evolution(H, psi0, c_ops, tlist)
 target = basis(2, 1)
 
 # Plot
-plot_bloch(states)
+# plot_bloch(states)
 plot_fidelity(states, ket2dm(target))
 
 simulate_T1()
@@ -56,3 +59,13 @@ target = ket2dm(basis(2, 1))
 pulse = optimize_pulse(noise, target)
 # print(pulse)
 plot_optimal_pulse(pulse)
+
+
+compare_fidelity_with_without_control(pulse, noise)
+
+
+pulse, fidelity_history = run_grape(noise)
+
+plot_grape_results(pulse, fidelity_history)
+
+fidelity_with_grape(pulse, noise)

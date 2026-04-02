@@ -22,7 +22,7 @@ def simulate_T1(T1=2, total_time=5):
     plt.title("T1 Relaxtion")
     plt.grid(True)
     plt.savefig("results/plots/T1_relaxation.png")
-    plt.show()
+    # plt.show()
 
 
 def simulate_T2(T2=1, total_time=5):
@@ -46,4 +46,4 @@ def simulate_T2(T2=1, total_time=5):
     plt.title("T2 Dephasing")
     plt.grid(True)
     plt.savefig("results/plots/T2_dephasing.png")
-    plt.show()
+    # plt.show()
