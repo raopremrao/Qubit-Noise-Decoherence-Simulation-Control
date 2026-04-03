@@ -33,3 +33,8 @@ Simulate how noise affects the qubit and then design a **control pulse** or **Er
 - Bloch sphere visualization
 - Interactive dashboard
 
+
+## Run Streamlit App
+```bash
+streamlit run app/streamlit_app.py
+```
