@@ -1,6 +1,6 @@
 numpy
 scipy
 matplotlib
-qiskit
-qutip
+qiskit>=2.0.0
+qutip>=4.0.0
 streamlit
