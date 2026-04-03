@@ -16,6 +16,31 @@ from control.controlled_evolution import run_controlled_simulation
 from control.control_pulse import constant_pulse, sinusoidal_pulse, gaussian_pulse
 
 def compare_control_pulse():
+    """
+    Compare different control pulse shapes and their effect on fidelity.
+
+    Physics:
+    Different control pulse shapes (constant, sinusoidal, gaussian)
+    affect qubit evolution differently.
+
+    The system evolves under:
+        H(t) = H0 + u(t) Hc
+
+    where u(t) is the control pulse.
+
+    This function compares fidelity vs time for:
+        - Constant pulse
+        - Sinusoidal pulse
+        - Gaussian pulse
+
+    This analysis is useful in quantum control,
+    pulse shaping, and gate optimization.
+
+    Returns
+    -------
+    None
+        Displays fidelity comparison plots.
+    """
     noise = [amplitude_damping(0.2)]
     target = ket2dm(basis(2,1))
 

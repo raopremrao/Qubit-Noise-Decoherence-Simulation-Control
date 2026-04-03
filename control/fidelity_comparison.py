@@ -14,6 +14,34 @@ from qutip import *
 from simulation.lindblad_solver import lindblad_evolution
 
 def compare_fidelity_with_without_control(pulse, noise_ops):
+    """
+    Compare system fidelity with and without control pulse.
+
+    Physics:
+    This function evaluates how control pulses improve
+    qubit performance under noise and decoherence.
+
+    Two simulations are performed:
+        1. Evolution without control pulse
+        2. Evolution with optimized control pulse
+
+    The fidelity over time is plotted for both cases to show
+    whether the control pulse improves quantum state preservation.
+
+    This is used in quantum control and noise mitigation research.
+
+    Parameters
+    ----------
+    pulse : array
+        Control pulse amplitudes.
+    noise_ops : list
+        Collapse operators representing noise.
+
+    Returns
+    -------
+    None
+        Displays fidelity comparison plot.
+    """
     N = len(pulse)
     T = 5
     tlist = np.linspace(0, T, N)

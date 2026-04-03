@@ -13,6 +13,34 @@ from qutip import *
 from scipy.optimize import minimize
 
 def optimize_pulse(noise_ops, target_state):
+    """
+    Optimize control pulse to maximize quantum state fidelity.
+
+    Physics:
+    The goal is to find a control pulse u(t) such that the final
+    quantum state is as close as possible to the target state.
+
+    The system evolves under:
+        H(t) = H0 + u(t) Hc
+
+    The optimization minimizes the cost function:
+        Cost = 1 - Fidelity
+
+    This is a basic quantum optimal control problem used in
+    quantum gate design and noise mitigation.
+
+    Parameters
+    ----------
+    noise_ops : list
+        Collapse operators representing noise.
+    target_state : qutip.Qobj
+        Desired target quantum state.
+
+    Returns
+    -------
+    pulse : array
+        Optimized pulse amplitudes.
+    """
     N = 80
     T = 5
     tlist = np.linspace(0, T, N)
@@ -22,6 +50,34 @@ def optimize_pulse(noise_ops, target_state):
     psi0 = basis(2, 0)
 
     def fidelity_cost(pulse):
+        """
+        Optimize control pulse to maximize quantum state fidelity.
+    
+        Physics:
+        The goal is to find a control pulse u(t) such that the final
+        quantum state is as close as possible to the target state.
+    
+        The system evolves under:
+            H(t) = H0 + u(t) Hc
+    
+        The optimization minimizes the cost function:
+            Cost = 1 - Fidelity
+    
+        This is a basic quantum optimal control problem used in
+        quantum gate design and noise mitigation.
+    
+        Parameters
+        ----------
+        noise_ops : list
+            Collapse operators representing noise.
+        target_state : qutip.Qobj
+            Desired target quantum state.
+    
+        Returns
+        -------
+        pulse : array
+            Optimized pulse amplitudes.
+        """
         pulse = np.clip(pulse, -5, 5)  # limit amplitude
 
         H_list = []

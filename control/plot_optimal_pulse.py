@@ -11,6 +11,29 @@ Project: Quantum Noise and Control Simulator
 import matplotlib.pyplot as plt
 
 def plot_optimal_pulse(pulse):
+    """
+    Plot the optimized control pulse amplitude versus time step.
+
+    Physics:
+    The control pulse u(t) modifies the system Hamiltonian:
+        H(t) = H0 + u(t) Hc
+
+    The optimized pulse is obtained using numerical optimization
+    to maximize state fidelity or minimize decoherence effects.
+
+    This plot shows how the control field amplitude changes over time,
+    which is useful for analyzing pulse shaping and quantum control strategies.
+
+    Parameters
+    ----------
+    pulse : array
+        Optimized pulse amplitudes at each time step.
+
+    Returns
+    -------
+    None
+        Displays the pulse amplitude plot.
+    """
     plt.figure()
     plt.plot(pulse)
     plt.xlabel("Time Step")
