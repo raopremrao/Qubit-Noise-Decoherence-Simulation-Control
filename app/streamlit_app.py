@@ -1,3 +1,12 @@
+"""
+Quantum Noise & Decoherence Simulation Project
+
+This module is part of the open quantum system simulation framework.
+It models qubit noise, decoherence, and control using Lindblad dynamics.
+
+Author: T PREM
+Project: Quantum Noise and Control Simulator
+"""
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -14,9 +23,32 @@ from simulation.lindblad_solver import lindblad_evolution
 from control.control_pulse import constant_pulse, sinusoidal_pulse, gaussian_pulse
 from control.controlled_evolution import run_controlled_simulation
 
+
 st.set_page_config(page_title="Quantum Noise Simulator", layout="wide")
 
 st.title("Quantum Qubit Noise & Control Simulator")
+
+st.markdown("""
+## Physics Background
+
+This simulator models qubit evolution under noise and control using the Lindblad master equation.
+
+The density matrix evolves as:
+
+$$dρ/dt = -i[H, ρ] + Σ (L ρ L^† - 1/2 {L^†L, ρ})$$
+
+Noise models included:
+- Amplitude damping (T1 relaxation)
+- Phase damping (T2 dephasing)
+- Depolarizing noise
+
+The simulator visualizes:
+- Bloch sphere trajectory
+- Fidelity vs time
+- Density matrix
+- Noise effects
+- Control pulse effects
+""")
 
 # Sidebar
 st.sidebar.header("Simulation Parameters")
