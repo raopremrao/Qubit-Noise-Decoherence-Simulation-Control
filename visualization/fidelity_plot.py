@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from qutip import fidelity
 
 def plot_fidelity(states, target):
-    fids = [fidelity(states, target) for states in states]
+    fids = [fidelity(state, target) for state in states]
 
     plt.figure()  # create new figure
     plt.plot(fids)

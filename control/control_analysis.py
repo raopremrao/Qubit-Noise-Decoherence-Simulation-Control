@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from qutip import *
 from noise_models.amplitude_damping import amplitude_damping
 from control.controlled_evolution import run_controlled_simulation
-from control.control_pulse import constant_pulse, sinusodial_pulse, gaussian_pulse
+from control.control_pulse import constant_pulse, sinusoidal_pulse, gaussian_pulse
 
 def compare_control_pulse():
     noise = [amplitude_damping(0.2)]
@@ -11,7 +11,7 @@ def compare_control_pulse():
 
     pulses = {
         "Constant": constant_pulse,
-        "Sinusodial": sinusodial_pulse,
+        "Sinusodial": sinusoidal_pulse,
         "Gaussian": gaussian_pulse
     }
 

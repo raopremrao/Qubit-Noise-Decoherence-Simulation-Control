@@ -9,7 +9,7 @@ def control_hamiltonian(t, args):
 def constant_pulse(t, A=1):
     return A
 
-def sinusodial_pulse(t, A=1, w=2):
+def sinusoidal_pulse(t, A=1, w=2):
     return A * np.sin(w * t)
 
 def gaussian_pulse(t, A=1, mu=2.5, sigma=1):

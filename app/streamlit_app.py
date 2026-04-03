@@ -11,7 +11,7 @@ from noise_models.amplitude_damping import amplitude_damping
 from noise_models.phase_damping import phase_damping
 from noise_models.depolarizing_noise import depolarizing_noise
 from simulation.lindblad_solver import lindblad_evolution
-from control.control_pulse import constant_pulse, sinusodial_pulse, gaussian_pulse
+from control.control_pulse import constant_pulse, sinusoidal_pulse, gaussian_pulse
 from control.controlled_evolution import run_controlled_simulation
 
 st.set_page_config(page_title="Quantum Noise Simulator", layout="wide")
@@ -50,7 +50,7 @@ if use_control:
     if pulse_type == "Constant":
         pulse_func = constant_pulse
     elif pulse_type == "Sinusodial":
-        pulse_func = sinusodial_pulse
+        pulse_func = sinusoidal_pulse
     else:
         pulse_func = gaussian_pulse
     

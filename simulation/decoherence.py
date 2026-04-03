@@ -19,7 +19,7 @@ def simulate_T1(T1=2, total_time=5):
     plt.plot(tlist, excited_pop)
     plt.xlabel("Time")
     plt.ylabel("Excited State Population")
-    plt.title("T1 Relaxtion")
+    plt.title("T1 Relaxation")
     plt.grid(True)
     plt.savefig("results/plots/T1_relaxation.png")
     # plt.show()
