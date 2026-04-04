@@ -10,6 +10,7 @@ Project: Quantum Noise and Control Simulator
 
 import matplotlib.pyplot as plt
 from qutip import fidelity
+from utils.file_utils import ensure_directory
 
 def plot_fidelity(states, target):
     fids = [fidelity(state, target) for state in states]
@@ -20,5 +21,6 @@ def plot_fidelity(states, target):
     plt.ylabel("Fidelity")
     plt.title("Fidelity vs Time")
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig("results/plots/fidelity_vs_time.png")
     # plt.show()

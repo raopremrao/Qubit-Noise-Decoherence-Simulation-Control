@@ -11,6 +11,7 @@ Project: Quantum Noise and Control Simulator
 import numpy as np
 import matplotlib.pyplot as plt
 from qutip import *
+from utils.file_utils import ensure_directory
 
 def simulate_T1(T1=2, total_time=5):
     tlist = np.linspace(0, total_time, 200)
@@ -31,6 +32,7 @@ def simulate_T1(T1=2, total_time=5):
     plt.ylabel("Excited State Population")
     plt.title("T1 Relaxation")
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig("results/plots/T1_relaxation.png")
     # plt.show()
 
@@ -55,5 +57,6 @@ def simulate_T2(T2=1, total_time=5):
     plt.ylabel("Coherence |ρ01|")
     plt.title("T2 Dephasing")
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig("results/plots/T2_dephasing.png")
     # plt.show()

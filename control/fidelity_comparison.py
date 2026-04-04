@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from qutip import *
 from simulation.lindblad_solver import lindblad_evolution
+from utils.file_utils import ensure_directory
 
 def compare_fidelity_with_without_control(pulse, noise_ops):
     """
@@ -73,5 +74,6 @@ def compare_fidelity_with_without_control(pulse, noise_ops):
     plt.title("Fidelity Improvement with Optimal Control")
     plt.legend()
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig("results/plots/fidelity_comparison.png")
     # plt.show()

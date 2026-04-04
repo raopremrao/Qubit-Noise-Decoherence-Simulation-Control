@@ -58,9 +58,23 @@ noise_type = st.sidebar.selectbox(
     ["Amplitude Damping", "Phase Damping", "Depolarizing"]
 )
 
-noise_strength = st.sidebar.slider("Noise Strength", 0.0, 1.0, 0.2)
+noise_strength = st.sidebar.slider(
+    "Noise Strength",
+    min_value=0.0, 
+    max_value=1.0, 
+    value=0.2,
+    step=0.01
+)
 
-time = st.sidebar.slider("Simulation Time", 1, 10, 5)
+time = st.sidebar.slider(
+    "Simulation Time", 
+    min_value=1, 
+    max_value=10, 
+    value=5
+)
+
+if noise_strength > 0.8:
+    st.warning("High noise regime - fidelity may drop quickly.")
 
 use_control = st.sidebar.checkbox("Enable Control Pulse")
 pulse_type = st.sidebar.selectbox("Control Pulse Type", ["Constant", "Sinusodial", "Gaussian"])
@@ -78,22 +92,25 @@ else:
     c_ops = depolarizing_noise(noise_strength)
 
 # With Control
-if use_control:
-    if pulse_type == "Constant":
-        pulse_func = constant_pulse
-    elif pulse_type == "Sinusodial":
-        pulse_func = sinusoidal_pulse
-    else:
-        pulse_func = gaussian_pulse
+try:
+    if use_control:
+        if pulse_type == "Constant":
+            pulse_func = constant_pulse
+        elif pulse_type == "Sinusodial":
+            pulse_func = sinusoidal_pulse
+        else:
+            pulse_func = gaussian_pulse
     
-    tlist, states = run_controlled_simulation(pulse_func, c_ops)
-else:
-    states = lindblad_evolution(H, psi0, c_ops, tlist)
+        tlist, states = run_controlled_simulation(pulse_func, c_ops)
+    else:
+        states = lindblad_evolution(H, psi0, c_ops, tlist)
+    
+    target = ket2dm(basis(2, 1))
+    fids = [fidelity(state, target) for state in states]
 
-# Fidelity
-# target = basis(2, 1)
-target = ket2dm(basis(2, 1))
-fids = [fidelity(state, target) for state in states]
+except Exception as e:
+    st.error(f"Simulation error: {e}")
+    st.stop()
 
 # Layout
 col1, col2 = st.columns(2)

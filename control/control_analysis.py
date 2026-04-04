@@ -14,6 +14,7 @@ from qutip import *
 from noise_models.amplitude_damping import amplitude_damping
 from control.controlled_evolution import run_controlled_simulation
 from control.control_pulse import constant_pulse, sinusoidal_pulse, gaussian_pulse
+from utils.file_utils import ensure_directory
 
 def compare_control_pulse():
     """
@@ -62,5 +63,6 @@ def compare_control_pulse():
     plt.title("Fidelity with Control Pulses")
     plt.legend()
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig("results/plots/fidelity_with_control_pulses.png")
     # plt.show()

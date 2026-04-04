@@ -10,6 +10,7 @@ Project: Quantum Noise and Control Simulator
 
 import numpy as np
 from qutip import *
+from utils.validation import validate_time_list, validate_quantum_state, validate_collapse_ops
 
 def lindblad_evolution(H, psi0, c_ops, tlist):
     '''
@@ -43,6 +44,11 @@ def lindblad_evolution(H, psi0, c_ops, tlist):
     states : list
         List of density matrices representing system evolution.
     '''
+
+    # Validation:
+    validate_time_list(tlist)
+    validate_quantum_state(psi0)
+    validate_collapse_ops(c_ops)
 
     # 1. Convert initial state to density matrix
     rho0 = ket2dm(psi0)

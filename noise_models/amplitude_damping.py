@@ -10,6 +10,8 @@ Project: Quantum Noise and Control Simulator
 
 from qutip import *
 import numpy as np
+from utils.validation import validate_noise_strength
+
 
 def amplitude_damping(gamma):
     '''
@@ -32,6 +34,9 @@ def amplitude_damping(gamma):
     qutip.Qobj
         Collapse operator for amplitude damping.
     '''
+
+    # Validation:
+    validate_noise_strength(gamma)
 
     sm = destroy(2)
     return np.sqrt(gamma) * sm

@@ -10,6 +10,7 @@ Project: Quantum Noise and Control Simulator
 
 import numpy as np
 from qutip import *
+from utils.validation import validate_noise_strength
 
 def phase_damping(gamma):
     '''
@@ -32,5 +33,9 @@ def phase_damping(gamma):
     qutip.Qobj
         Collapse operator for phase damping.
     '''
+
+    # Validation:
+    validate_noise_strength(gamma)
+
     sz = sigmaz()
     return np.sqrt(gamma) * sz

@@ -41,6 +41,12 @@ def optimize_pulse(noise_ops, target_state):
     pulse : array
         Optimized pulse amplitudes.
     """
+
+    if not isinstance(noise_ops, list):
+        raise TypeError("noise_ops must be a list of collapse operators.")
+    if not isinstance(target_state, Qobj):
+        raise TypeError("target_state must be a Qobj.")
+
     N = 80
     T = 5
     tlist = np.linspace(0, T, N)
@@ -78,6 +84,10 @@ def optimize_pulse(noise_ops, target_state):
         pulse : array
             Optimized pulse amplitudes.
         """
+
+        if len(pulse) == 0:
+            raise ValueError("Pulse array cannot be empty.")
+
         pulse = np.clip(pulse, -5, 5)  # limit amplitude
 
         H_list = []

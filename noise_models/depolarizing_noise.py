@@ -10,6 +10,7 @@ Project: Quantum Noise and Control Simulator
 
 from qutip import *
 import numpy as np
+from utils.validation import validate_noise_strength
 
 def depolarizing_noise(gamma):
     '''
@@ -34,6 +35,10 @@ def depolarizing_noise(gamma):
     qutip.Qobj
         List of collapse operators for depolarizing noise
     '''
+
+    # validation:
+    validate_noise_strength(gamma)
+    
     return [
         np.sqrt(gamma) * sigmax(),
         np.sqrt(gamma) * sigmay(),

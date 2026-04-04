@@ -9,6 +9,7 @@ Project: Quantum Noise and Control Simulator
 """
 
 import matplotlib.pyplot as plt
+from utils.file_utils import ensure_directory
 
 def plot_optimal_pulse(pulse):
     """
@@ -40,5 +41,6 @@ def plot_optimal_pulse(pulse):
     plt.ylabel("Pulse Amplitude")
     plt.title("Optimized Control Pulse")
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig("results/plots/optimal_pulse.png")
     # plt.show()

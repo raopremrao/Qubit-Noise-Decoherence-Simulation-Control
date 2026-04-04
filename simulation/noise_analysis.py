@@ -15,6 +15,7 @@ from simulation.lindblad_solver import lindblad_evolution
 from noise_models.amplitude_damping import amplitude_damping
 from noise_models.phase_damping import phase_damping
 from noise_models.depolarizing_noise import depolarizing_noise
+from utils.file_utils import ensure_directory
 
 def fidelity_vs_noise(noise_type="amplitude"):
     tlist = np.linspace(0, 5, 200)
@@ -43,6 +44,7 @@ def fidelity_vs_noise(noise_type="amplitude"):
     plt.ylabel("Fidelity")
     plt.title(f"Fidelity vs {noise_type} noise")
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig(f"results/plots/{noise_type}_noise.png")
     # plt.show()
 
@@ -79,5 +81,6 @@ def compare_noise_models():
     plt.title("Fidelity vs Noise Type")
     plt.legend()
     plt.grid(True)
+    ensure_directory("results/plots")
     plt.savefig("results/plots/compare_noise_models.png")
     # plt.show()
