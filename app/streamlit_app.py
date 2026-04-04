@@ -22,7 +22,11 @@ from noise_models.depolarizing_noise import depolarizing_noise
 from simulation.lindblad_solver import lindblad_evolution
 from control.control_pulse import constant_pulse, sinusoidal_pulse, gaussian_pulse
 from control.controlled_evolution import run_controlled_simulation
+from utils.logger import log
 
+
+
+log("Simulation started by streamlit")
 
 st.set_page_config(page_title="Quantum Noise Simulator", layout="wide")
 
@@ -111,6 +115,7 @@ try:
 except Exception as e:
     st.error(f"Simulation error: {e}")
     st.stop()
+    log(f"Simulation error: {e}")
 
 # Layout
 col1, col2 = st.columns(2)
