@@ -25,7 +25,9 @@ from utils.logger import log
 
 
 
-log("Simulation started by main.py")
+if __name__ == "__main__":
+    log("Simulation started by main.py")
+
 # Time
 tlist = np.linspace(0, 5, 200)
 
