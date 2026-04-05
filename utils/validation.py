@@ -3,7 +3,7 @@ from qutip import Qobj
 
 def validate_noise_strength(gamma):
     if not isinstance(gamma, (int, float)):
-        raise TypeError("Noise strenth gamma must be a number.")
+        raise TypeError("Noise strength gamma must be a number.")
     if gamma < 0:
         raise ValueError("Noise strength gamma must be >= 0.")
 
